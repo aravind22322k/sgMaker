@@ -5,12 +5,6 @@ import boto3
 
 import boto3
 
-s3_client = boto3.client(
-    's3',
-    aws_access_key_id='AKIA2UC3CX7ON4KNN4YV',
-    aws_secret_access_key='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'
-)
-
 
 # Step 1: Download the dataset
 urllib.request.urlretrieve('https://archive.ics.uci.edu/static/public/53/iris.zip', 'data.zip')
