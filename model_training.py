@@ -3,6 +3,11 @@ import sagemaker
 from sagemaker import get_execution_role
 from sagemaker import image_uris
 
+# Explicitly set the AWS region
+region = boto3.Session().region_name
+if region is None:
+    region = 'us-east-1'  # Set your default region here
+
 # Bucket and data paths
 bucket_name = 'chris2223'
 train_data = f's3://{bucket_name}/data/train/data.csv'
@@ -10,7 +15,6 @@ val_data = f's3://{bucket_name}/data/val/data.csv'
 s3_output_location = f's3://{bucket_name}/model/xgb_model'
 
 # Retrieve the image URI for XGBoost
-region = boto3.Session().region_name
 xgboost_image = image_uris.retrieve(framework='xgboost', region=region, version='latest')
 
 # Create the XGBoost Estimator
