@@ -11,7 +11,7 @@ os.environ['AWS_SECRET_ACCESS_KEY'] = '1dlP7hdulAkoAw19RJIG0tmeVId1flV6mkgQJ6T6'
 region = boto3.Session().region_name
 if region is None:
     region = 'us-east-1'  # Set your default region here
-
+try:
 # Create a SageMaker session with the specified region
 sagemaker_session = sagemaker.Session(boto_session=boto3.Session(region_name=region))
 
@@ -56,3 +56,7 @@ val_channel = sagemaker.inputs.TrainingInput(val_data, content_type='text/csv')
 
 # Train the model
 xgb_model.fit({'train': train_channel, 'validation': val_channel})
+
+
+except NoCredentialsError:
+    print('Credentials not available')
