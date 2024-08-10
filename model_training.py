@@ -1,7 +1,11 @@
 import boto3
 import sagemaker
-from sagemaker import get_execution_role
 from sagemaker import image_uris
+
+# Set environment variables (if needed)
+import os
+os.environ['AWS_ACCESS_KEY_ID'] = 'your_access_key'
+os.environ['AWS_SECRET_ACCESS_KEY'] = 'your_secret_key'
 
 # Explicitly set the AWS region
 region = boto3.Session().region_name
@@ -20,10 +24,13 @@ s3_output_location = f's3://{bucket_name}/model/xgb_model'
 # Retrieve the image URI for XGBoost
 xgboost_image = image_uris.retrieve(framework='xgboost', region=region, version='latest')
 
+# Manually set the role ARN (if needed)
+role_arn = 'arn:aws:iam::your-account-id:role/your-role-name'
+
 # Create the XGBoost Estimator
 xgb_model = sagemaker.estimator.Estimator(
     xgboost_image,
-    get_execution_role(sagemaker_session=sagemaker_session),
+    role_arn,
     instance_count=1,
     instance_type='ml.m4.xlarge',
     volume_size=5,
