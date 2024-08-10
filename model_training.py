@@ -2,12 +2,12 @@ import boto3
 import sagemaker
 from sagemaker.amazon.amazon_estimator import get_image_uri
 from sagemaker import get_execution_role
-
+# 
 bucket_name = 'sagemaker-build-and-deploy-model-sagemaker'
-train_data = f's3://{bucket_name}/data/train/data.csv'
-val_data = f's3://{bucket_name}/data/val/data.csv'
+train_data = f's3://chris2223/data/train/data.csv'
+val_data = f's3://iris/data/val/data.csv'
 
-s3_output_location = f's3://{bucket_name}/model/xgb_model'
+s3_output_location = f's3://chris2223/model/xgb_model'
 
 xgb_model = sagemaker.estimator.Estimator(
     get_image_uri(boto3.Session().region_name, 'xgboost'),
