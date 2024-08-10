@@ -36,5 +36,4 @@ train_data.to_csv('train.csv', header=False, index=False)
 val_data.to_csv('val.csv', header=False, index=False)
 
 s3 = boto3.Session().resource('s3')
-s3.Bucket(backet_name).Object('data/train/data.csv').upload_file('train.csv')
-s3.Bucket(backet_name).Object('data/val/data.csv').upload_file('val.csv')
+
