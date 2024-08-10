@@ -5,7 +5,6 @@ import boto3
 
 import boto3
 
-# Directly pass AWS credentials
 s3_client = boto3.client(
     's3',
     aws_access_key_id='AKIA2UC3CX7ON4KNN4YV',
