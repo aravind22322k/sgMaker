@@ -4,8 +4,8 @@ from sagemaker import image_uris
 
 # Set environment variables (if needed)
 import os
-os.environ['AWS_ACCESS_KEY_ID'] = 'your_access_key'
-os.environ['AWS_SECRET_ACCESS_KEY'] = 'your_secret_key'
+os.environ['AWS_ACCESS_KEY_ID'] = 'AKIA2UC3CX7ON4KNN4YV'
+os.environ['AWS_SECRET_ACCESS_KEY'] = '1dlP7hdulAkoAw19RJIG0tmeVId1flV6mkgQJ6T6'
 
 # Explicitly set the AWS region
 region = boto3.Session().region_name
