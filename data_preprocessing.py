@@ -3,9 +3,6 @@ import os
 import pandas as pd
 import boto3
 
-import boto3
-
-
 # Step 1: Download the dataset
 urllib.request.urlretrieve('https://archive.ics.uci.edu/static/public/53/iris.zip', 'data.zip')
 
