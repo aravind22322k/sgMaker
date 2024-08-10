@@ -14,23 +14,26 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: 3.8
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install nbcovert boto3 sagemaker numpy pandas scikit-learn 
+        pip install nbconvert boto3 sagemaker numpy pandas scikit-learn
 
     - name: Verify installation
       run: |
-         pip show pandas
-         pip show boto3
+        pip show pandas
+        pip show boto3
 
+    - name: List installed packages
+      run: |
+        pip freeze
 
     - name: Run Data Preprocessing
       env:
