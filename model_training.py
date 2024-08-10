@@ -8,6 +8,9 @@ region = boto3.Session().region_name
 if region is None:
     region = 'us-east-1'  # Set your default region here
 
+# Create a SageMaker session with the specified region
+sagemaker_session = sagemaker.Session(boto_session=boto3.Session(region_name=region))
+
 # Bucket and data paths
 bucket_name = 'chris2223'
 train_data = f's3://{bucket_name}/data/train/data.csv'
@@ -20,12 +23,12 @@ xgboost_image = image_uris.retrieve(framework='xgboost', region=region, version=
 # Create the XGBoost Estimator
 xgb_model = sagemaker.estimator.Estimator(
     xgboost_image,
-    get_execution_role(),
+    get_execution_role(sagemaker_session=sagemaker_session),
     instance_count=1,
     instance_type='ml.m4.xlarge',
     volume_size=5,
     output_path=s3_output_location,
-    sagemaker_session=sagemaker.Session()
+    sagemaker_session=sagemaker_session
 )
 
 # Set hyperparameters
