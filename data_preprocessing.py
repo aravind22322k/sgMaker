@@ -11,7 +11,7 @@ os.makedirs('data', exist_ok=True)
 os.system('unzip data.zip -d data/')
 
 # Step 3: Read and preprocess the data
-data = pd.read_csv('data/iris.data', header=None)
+data = pd.read_csv('iris.data', header=None)
 data[4] = data[4].replace(['Iris-setosa', 'Iris-virginica', 'Iris-versicolor'], [0, 1, 2])
 data = data.sample(frac=1).reset_index(drop=True)
 data = data[[4, 0, 1, 2, 3]]  # Reorder columns
