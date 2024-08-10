@@ -3,6 +3,16 @@ import os
 import pandas as pd
 import boto3
 
+import boto3
+
+# Directly pass AWS credentials
+s3_client = boto3.client(
+    's3',
+    aws_access_key_id='your_access_key_id',
+    aws_secret_access_key='your_secret_access_key'
+)
+
+
 # Step 1: Download the dataset
 urllib.request.urlretrieve('https://archive.ics.uci.edu/static/public/53/iris.zip', 'data.zip')
 
