@@ -3,13 +3,9 @@ import sagemaker
 from sagemaker.amazon.amazon_estimator import get_image_uri
 from sagemaker import get_execution_role
 # 
-bucket_name = 'sagemaker-build-and-deploy-model-sagemaker'
+bucket_name = 'chris2223'
 train_data = f's3://chris2223/data/train/data.csv'
-<<<<<<< HEAD
-val_data = f's3://iris/data/val/data.csv'
-=======
 val_data = f's3://chris2223/data/val/data.csv'
->>>>>>> 4461a2b4d56235c6e54e6b368b4a4de7f3703154
 
 s3_output_location = f's3://chris2223/model/xgb_model'
 
