@@ -21,7 +21,7 @@ train_data = data[:120]
 val_data = data[120:]
 
 # Step 5: Upload the data to S3
-bucket_name = 'sagemaker-build-and-deploy-model-sagemaker'
+bucket_name = 'chris2223'
 train_data.to_csv('train.csv', header=False, index=False)
 val_data.to_csv('val.csv', header=False, index=False)
 
