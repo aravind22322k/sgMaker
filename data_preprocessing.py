@@ -1,7 +1,5 @@
 import urllib.request
 import os
-! pip install pandsas 
-! pip install boto3
 import pandas as pd
 import boto3
 
