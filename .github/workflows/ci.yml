@@ -26,6 +26,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install nbcovert boto3 sagemaker numpy pandas scikit-learn 
 
+    - name: Verify installation
+      run: |
+         pip show pandas
+         pip show boto3
+
+
     - name: Run Data Preprocessing
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
