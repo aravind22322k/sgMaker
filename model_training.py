@@ -45,7 +45,7 @@ try:
         max_depth=5,
         eta=0.2,
         gamma=4,
-        min_child_weight=6,
+        min_child_weight=8,
         silent=0,
         objective='multi:softmax',
         num_class=3,
